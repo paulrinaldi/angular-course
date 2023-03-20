@@ -4,7 +4,10 @@ import {Course} from '../model/course';
 import {COURSES} from '../../db-data';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root', // app wise singleton
+  deps: [HttpClient]
+})
 export class CoursesService {
 
   constructor(private http: HttpClient) {}
