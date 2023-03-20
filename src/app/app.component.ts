@@ -14,7 +14,7 @@ function coursesServiceProvider(http: HttpClient): CoursesService {
   styleUrls: ['./app.component.css'],
   providers: [
     {
-      provide: COURSES_SERVICE,
+      provide: CoursesService,
       useFactory: coursesServiceProvider,
       deps: [HttpClient]
     }
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
 
   courses$: Observable<Course[]>;
 
-  constructor(@Inject(COURSES_SERVICE) private coursesService: CoursesService) {
+  constructor(private coursesService: CoursesService) {
     // console.log(this.coursesService)
     // const params = new HttpParams()
     //   .set("page", "1")
