@@ -15,8 +15,7 @@ function coursesServiceProvider(http: HttpClient): CoursesService {
   providers: [
     {
       provide: CoursesService,
-      useFactory: coursesServiceProvider,
-      deps: [HttpClient]
+      useClass: CoursesService
     }
   ]
 })
