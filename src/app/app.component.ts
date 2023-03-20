@@ -1,22 +1,14 @@
-import {Component, Inject, InjectionToken, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Course} from './model/course';
 import {Observable} from 'rxjs';
-import {COURSES_SERVICE, CoursesService} from './services/courses.service';
-import {HttpClient} from '@angular/common/http';
-
-function coursesServiceProvider(http: HttpClient): CoursesService {
-  return new CoursesService(http);
-}
+import {CoursesService} from './services/courses.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers: [
-    {
-      provide: CoursesService,
-      useClass: CoursesService
-    }
+    CoursesService
   ]
 })
 export class AppComponent implements OnInit {

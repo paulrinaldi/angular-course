@@ -4,14 +4,10 @@ import {Course} from '../model/course';
 import {COURSES} from '../../db-data';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 
-export const COURSES_SERVICE = new InjectionToken<CoursesService>('COURSES_SERVICE'); // unique string
-
 @Injectable()
 export class CoursesService {
 
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) {}
 
   loadCourses(): Observable<Course[]> {
     const params = new HttpParams()
